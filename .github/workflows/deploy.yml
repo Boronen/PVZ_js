@@ -28,11 +28,13 @@ jobs:
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository root (index.html + src/ + assets/)
+          # Upload entire repository root (index.html + src/)
           path: '.'
 
       - name: Deploy to GitHub Pages
