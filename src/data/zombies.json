@@ -1,0 +1,115 @@
+{
+  "zombies": [
+    {
+      "id": "basic",
+      "imageFile": "basic zombie.png",
+      "emoji": "🧟",
+      "hp": 200,
+      "speed": 28,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 10,
+      "tier": 1,
+      "description": "A basic zombie. Slow but relentless."
+    },
+    {
+      "id": "conehead",
+      "imageFile": "conehead zombie.png",
+      "emoji": "🧟",
+      "hp": 560,
+      "speed": 28,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 15,
+      "tier": 1,
+      "description": "Wears a cone for extra protection."
+    },
+    {
+      "id": "buckethead",
+      "imageFile": "buckethead zombie.png",
+      "emoji": "🧟",
+      "hp": 1300,
+      "speed": 28,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 25,
+      "tier": 2,
+      "description": "A bucket provides serious armor."
+    },
+    {
+      "id": "flag",
+      "imageFile": "flag zombie.png",
+      "emoji": "🚩",
+      "hp": 200,
+      "speed": 28,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 10,
+      "tier": 1,
+      "isFlag": true,
+      "description": "Signals a large wave is incoming."
+    },
+    {
+      "id": "newspaper",
+      "imageFile": "newspaper zombie.png",
+      "emoji": "📰",
+      "hp": 300,
+      "speed": 28,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 15,
+      "tier": 2,
+      "enragedSpeed": 56,
+      "description": "Enrages when its newspaper is destroyed."
+    },
+    {
+      "id": "polevaulting",
+      "imageFile": "prospector zombie.png",
+      "emoji": "🏃",
+      "hp": 500,
+      "speed": 56,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 20,
+      "tier": 2,
+      "vaults": true,
+      "description": "Vaults over the first plant it encounters."
+    },
+    {
+      "id": "football",
+      "imageFile": "all-star zombie.png",
+      "emoji": "🏈",
+      "hp": 1600,
+      "speed": 56,
+      "damage": 200,
+      "attackCooldown": 0.75,
+      "coinReward": 35,
+      "tier": 3,
+      "description": "Fast and heavily armored."
+    },
+    {
+      "id": "dancing",
+      "imageFile": "disco jetpack zombie.png",
+      "emoji": "🕺",
+      "hp": 500,
+      "speed": 28,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 30,
+      "tier": 3,
+      "description": "Summons backup dancers when it appears."
+    },
+    {
+      "id": "backup_dancer",
+      "imageFile": "imp.png",
+      "emoji": "💃",
+      "hp": 200,
+      "speed": 28,
+      "damage": 100,
+      "attackCooldown": 1.0,
+      "coinReward": 5,
+      "tier": 3,
+      "description": "A backup dancer summoned by the Dancing Zombie."
+    }
+  ]
+}

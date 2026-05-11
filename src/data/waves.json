@@ -1,0 +1,100 @@
+{
+  "waves": [
+    {
+      "wave": 1,
+      "zombies": [
+        { "id": "basic", "count": 3, "spawnInterval": 4.0 }
+      ]
+    },
+    {
+      "wave": 2,
+      "zombies": [
+        { "id": "basic",    "count": 4, "spawnInterval": 3.5 },
+        { "id": "conehead", "count": 1, "spawnInterval": 5.0 }
+      ]
+    },
+    {
+      "wave": 3,
+      "zombies": [
+        { "id": "basic",    "count": 5, "spawnInterval": 3.0 },
+        { "id": "conehead", "count": 2, "spawnInterval": 4.0 }
+      ],
+      "hasElite": true
+    },
+    {
+      "wave": 4,
+      "zombies": [
+        { "id": "basic",      "count": 4, "spawnInterval": 3.0 },
+        { "id": "conehead",   "count": 3, "spawnInterval": 3.5 },
+        { "id": "newspaper",  "count": 1, "spawnInterval": 6.0 }
+      ]
+    },
+    {
+      "wave": 5,
+      "zombies": [
+        { "id": "basic",          "count": 5, "spawnInterval": 2.5 },
+        { "id": "conehead",       "count": 3, "spawnInterval": 3.0 },
+        { "id": "polevaulting",   "count": 2, "spawnInterval": 4.0 }
+      ]
+    },
+    {
+      "wave": 6,
+      "zombies": [
+        { "id": "basic",        "count": 6, "spawnInterval": 2.5 },
+        { "id": "conehead",     "count": 3, "spawnInterval": 3.0 },
+        { "id": "buckethead",   "count": 1, "spawnInterval": 6.0 },
+        { "id": "newspaper",    "count": 2, "spawnInterval": 4.0 }
+      ],
+      "hasElite": true
+    },
+    {
+      "wave": 7,
+      "zombies": [
+        { "id": "basic",          "count": 6, "spawnInterval": 2.0 },
+        { "id": "conehead",       "count": 4, "spawnInterval": 2.5 },
+        { "id": "buckethead",     "count": 2, "spawnInterval": 5.0 },
+        { "id": "polevaulting",   "count": 2, "spawnInterval": 3.5 }
+      ]
+    },
+    {
+      "wave": 8,
+      "zombies": [
+        { "id": "basic",        "count": 7, "spawnInterval": 2.0 },
+        { "id": "conehead",     "count": 4, "spawnInterval": 2.5 },
+        { "id": "buckethead",   "count": 3, "spawnInterval": 4.0 },
+        { "id": "football",     "count": 1, "spawnInterval": 8.0 }
+      ]
+    },
+    {
+      "wave": 9,
+      "zombies": [
+        { "id": "basic",          "count": 8, "spawnInterval": 1.8 },
+        { "id": "conehead",       "count": 5, "spawnInterval": 2.2 },
+        { "id": "buckethead",     "count": 3, "spawnInterval": 3.5 },
+        { "id": "football",       "count": 2, "spawnInterval": 6.0 },
+        { "id": "dancing",        "count": 1, "spawnInterval": 10.0 }
+      ],
+      "hasElite": true
+    },
+    {
+      "wave": 10,
+      "zombies": [
+        { "id": "basic",          "count": 10, "spawnInterval": 1.5 },
+        { "id": "conehead",       "count": 6,  "spawnInterval": 2.0 },
+        { "id": "buckethead",     "count": 4,  "spawnInterval": 3.0 },
+        { "id": "football",       "count": 3,  "spawnInterval": 5.0 },
+        { "id": "dancing",        "count": 2,  "spawnInterval": 8.0 },
+        { "id": "flag",           "count": 1,  "spawnInterval": 0.0 }
+      ],
+      "hasElite": true,
+      "isFinalWave": true
+    }
+  ],
+  "eliteMutations": [
+    { "id": "speedy",   "name": "Speedy",   "speedMult": 2.0, "hpMult": 1.0, "damageMult": 1.0, "color": "#ff6b6b" },
+    { "id": "armored",  "name": "Armored",  "speedMult": 0.8, "hpMult": 3.0, "damageMult": 1.5, "color": "#aaaaaa" },
+    { "id": "berserker","name": "Berserker","speedMult": 1.5, "hpMult": 2.0, "damageMult": 2.5, "color": "#ff4500" },
+    { "id": "giant",    "name": "Giant",    "speedMult": 0.6, "hpMult": 4.0, "damageMult": 3.0, "color": "#8b0000" },
+    { "id": "phantom",  "name": "Phantom",  "speedMult": 2.5, "hpMult": 1.5, "damageMult": 1.0, "color": "#9b59b6" }
+  ]
+}

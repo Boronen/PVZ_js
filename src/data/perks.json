@@ -1,0 +1,190 @@
+{
+  "perks": [
+    {
+      "id": "sun_discount_sm",
+      "name": "Bargain Botanist",
+      "description": "All plants cost 25 less sun",
+      "icon": "💸",
+      "rarity": "common",
+      "cost": 30,
+      "effect": { "type": "sun_discount", "value": 25 }
+    },
+    {
+      "id": "sun_discount_lg",
+      "name": "Green Thumb",
+      "description": "All plants cost 50 less sun",
+      "icon": "🌿",
+      "rarity": "uncommon",
+      "cost": 60,
+      "effect": { "type": "sun_discount", "value": 50 }
+    },
+    {
+      "id": "plant_damage_sm",
+      "name": "Fertilizer",
+      "description": "Plants deal 25% more damage",
+      "icon": "💪",
+      "rarity": "common",
+      "cost": 40,
+      "effect": { "type": "plant_damage_mult", "value": 1.25 }
+    },
+    {
+      "id": "plant_damage_lg",
+      "name": "Super Fertilizer",
+      "description": "Plants deal 50% more damage",
+      "icon": "⚡",
+      "rarity": "rare",
+      "cost": 80,
+      "effect": { "type": "plant_damage_mult", "value": 1.5 }
+    },
+    {
+      "id": "plant_hp_sm",
+      "name": "Toughened Roots",
+      "description": "Plants have 30% more HP",
+      "icon": "🛡️",
+      "rarity": "common",
+      "cost": 35,
+      "effect": { "type": "plant_hp_mult", "value": 1.3 }
+    },
+    {
+      "id": "plant_hp_lg",
+      "name": "Iron Bark",
+      "description": "Plants have 60% more HP",
+      "icon": "🪨",
+      "rarity": "uncommon",
+      "cost": 65,
+      "effect": { "type": "plant_hp_mult", "value": 1.6 }
+    },
+    {
+      "id": "plant_cooldown_sm",
+      "name": "Quick Bloom",
+      "description": "Plant recharge 20% faster",
+      "icon": "⏩",
+      "rarity": "common",
+      "cost": 35,
+      "effect": { "type": "plant_cooldown_mult", "value": 0.8 }
+    },
+    {
+      "id": "plant_cooldown_lg",
+      "name": "Rapid Growth",
+      "description": "Plant recharge 40% faster",
+      "icon": "🚀",
+      "rarity": "rare",
+      "cost": 70,
+      "effect": { "type": "plant_cooldown_mult", "value": 0.6 }
+    },
+    {
+      "id": "zombie_slow",
+      "name": "Bog Down",
+      "description": "All zombies move 20% slower",
+      "icon": "🐌",
+      "rarity": "uncommon",
+      "cost": 50,
+      "effect": { "type": "zombie_slow", "value": 0.8 }
+    },
+    {
+      "id": "zombie_slow_lg",
+      "name": "Deep Mud",
+      "description": "All zombies move 35% slower",
+      "icon": "🌊",
+      "rarity": "rare",
+      "cost": 80,
+      "effect": { "type": "zombie_slow", "value": 0.65 }
+    },
+    {
+      "id": "sun_production",
+      "name": "Solar Panel",
+      "description": "Sunflowers produce 50% more sun",
+      "icon": "☀️",
+      "rarity": "uncommon",
+      "cost": 55,
+      "effect": { "type": "sun_production", "value": 1.5 }
+    },
+    {
+      "id": "sun_production_lg",
+      "name": "Solar Farm",
+      "description": "Sunflowers produce double sun",
+      "icon": "🌞",
+      "rarity": "rare",
+      "cost": 90,
+      "effect": { "type": "sun_production", "value": 2.0 }
+    },
+    {
+      "id": "starting_sun",
+      "name": "Sunny Start",
+      "description": "Gain 100 bonus sun immediately",
+      "icon": "🌅",
+      "rarity": "common",
+      "cost": 25,
+      "effect": { "type": "starting_sun", "value": 100 }
+    },
+    {
+      "id": "coin_bonus",
+      "name": "Grave Robber",
+      "description": "Earn 50% more coins from zombies",
+      "icon": "🪙",
+      "rarity": "uncommon",
+      "cost": 45,
+      "effect": { "type": "coin_bonus", "value": 1.5 }
+    },
+    {
+      "id": "coin_bonus_lg",
+      "name": "Treasure Hunter",
+      "description": "Earn double coins from zombies",
+      "icon": "💰",
+      "rarity": "rare",
+      "cost": 75,
+      "effect": { "type": "coin_bonus", "value": 2.0 }
+    },
+    {
+      "id": "lawnmower_extra",
+      "name": "Extra Mower",
+      "description": "Each row gets an extra lawnmower",
+      "icon": "🚜",
+      "rarity": "uncommon",
+      "cost": 60,
+      "effect": { "type": "lawnmower_extra", "value": 1 }
+    },
+    {
+      "id": "plant_damage_epic",
+      "name": "Wrath of Nature",
+      "description": "Plants deal 100% more damage",
+      "icon": "🌋",
+      "rarity": "epic",
+      "cost": 120,
+      "effect": { "type": "plant_damage_mult", "value": 2.0 }
+    },
+    {
+      "id": "zombie_slow_epic",
+      "name": "Permafrost",
+      "description": "All zombies move 60% slower",
+      "icon": "🧊",
+      "rarity": "epic",
+      "cost": 120,
+      "effect": { "type": "zombie_slow", "value": 0.4 }
+    },
+    {
+      "id": "sun_epic",
+      "name": "Endless Summer",
+      "description": "Gain 200 bonus sun and plants cost 75 less",
+      "icon": "🌈",
+      "rarity": "epic",
+      "cost": 150,
+      "effect": { "type": "sun_discount", "value": 75, "bonus_sun": 200 }
+    },
+    {
+      "id": "plant_hp_epic",
+      "name": "Immortal Garden",
+      "description": "Plants have double HP",
+      "icon": "♾️",
+      "rarity": "epic",
+      "cost": 130,
+      "effect": { "type": "plant_hp_mult", "value": 2.0 }
+    }
+  ],
+  "rarityWeights": {
+    "common":   50,
+    "uncommon": 30,
+    "rare":     15,
+    "epic":      5
+  }
+}

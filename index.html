@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plants vs Zombies Roguelike — defend your lawn with randomized plant loadouts and roguelike perks" />
+  <title>PvZ Roguelike</title>
+  <link rel="stylesheet" href="src/styles/main.css" />
+</head>
+<body>
+  <div id="game-container">
+    <!-- HTML5 Canvas for game rendering -->
+    <canvas id="game-canvas" width="1280" height="720" aria-label="Game Canvas"></canvas>
+
+    <!-- DOM UI Overlay (rendered on top of canvas) -->
+    <div id="ui-overlay" aria-live="polite">
+
+      <!-- Loading Screen -->
+      <div id="screen-loading" class="screen" data-cy="screen-loading">
+        <div class="loading-content">
+          <div class="loading-logo">🌻</div>
+          <h1 class="loading-title">PvZ Roguelike</h1>
+          <div class="loading-bar-container">
+            <div class="loading-bar-fill" id="loading-bar-fill"></div>
+          </div>
+          <p class="loading-text" id="loading-text">Loading assets…</p>
+        </div>
+      </div>
+
+      <!-- Main Menu Screen -->
+      <div id="screen-main-menu" class="screen hidden" data-cy="screen-main-menu">
+        <div class="menu-bg"></div>
+        <div class="menu-content">
+          <div class="game-logo">
+            <div class="logo-icon">🌻</div>
+            <h1 class="logo-title">PvZ Roguelike</h1>
+            <p class="logo-subtitle">Defend. Adapt. Survive.</p>
+          </div>
+          <nav class="main-menu-nav">
+            <button id="btn-new-run" class="menu-btn btn-primary" data-cy="btn-new-run">🌱 New Run</button>
+            <button id="btn-unlocks" class="menu-btn btn-secondary" data-cy="btn-unlocks">🔓 Unlocks</button>
+            <button id="btn-how-to-play" class="menu-btn btn-secondary" data-cy="btn-how-to-play">📖 How to Play</button>
+          </nav>
+          <div class="meta-currency-display" data-cy="meta-currency">
+            <span class="meta-icon">🌰</span>
+            <span class="meta-label">Seeds:</span>
+            <span class="meta-value" id="meta-seeds-display">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Play Modal -->
+      <div id="modal-how-to-play" class="modal hidden" data-cy="modal-how-to-play">
+        <div class="modal-content">
+          <h2>How to Play</h2>
+          <div class="how-to-content">
+            <p>Defend your lawn from waves of zombies using plants!</p>
+            <ul>
+              <li>☀️ <strong>Sun</strong> — Collect sun to plant defenders. Sunflowers produce extra sun.</li>
+              <li>🌱 <strong>Draft</strong> — Each run starts with a random selection of 5 plants. Pick 3.</li>
+              <li>🧟 <strong>Waves</strong> — Survive 10 waves of increasingly dangerous zombies.</li>
+              <li>🛒 <strong>Shop</strong> — After each wave, spend coins on powerful roguelike perks.</li>
+              <li>⭐ <strong>Elites</strong> — Every 3rd wave spawns a mutated elite zombie.</li>
+              <li>💀 <strong>Permadeath</strong> — If zombies reach your house, the run ends!</li>
+              <li>🌰 <strong>Seeds</strong> — Earn seeds each run to permanently unlock new plants.</li>
+            </ul>
+          </div>
+          <button class="modal-close btn-secondary" id="btn-close-how-to-play">Close</button>
+        </div>
+      </div>
+
+      <!-- Draft Screen -->
+      <div id="screen-draft" class="screen hidden" data-cy="screen-draft">
+        <div class="draft-bg"></div>
+        <div class="draft-content">
+          <h2 class="screen-title">🌱 Choose Your Plants</h2>
+          <p class="draft-subtitle">Select <strong>3 plants</strong> for this run</p>
+          <div class="draft-cards-container" id="draft-cards-container" data-cy="draft-cards-container">
+            <!-- Plant draft cards injected by DraftScreen.js -->
+          </div>
+          <div class="draft-selected-preview" id="draft-selected-preview">
+            <span class="draft-selected-label">Selected:</span>
+            <div class="draft-selected-slots" id="draft-selected-slots">
+              <!-- Selected plant slots -->
+            </div>
+          </div>
+          <div class="draft-actions">
+            <button id="btn-draft-back" class="menu-btn btn-secondary">← Back</button>
+            <button id="btn-draft-confirm" class="menu-btn btn-primary disabled" disabled data-cy="btn-draft-confirm">Start Run →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gameplay HUD -->
+      <div id="screen-gameplay" class="screen hidden" data-cy="screen-gameplay">
+        <!-- Top HUD Bar -->
+        <div class="hud-top-bar" data-cy="hud-top-bar">
+          <div class="hud-sun" data-cy="hud-sun">
+            <span class="hud-icon">☀️</span>
+            <span class="hud-value" id="hud-sun-value" data-cy="hud-sun-value">150</span>
+          </div>
+          <div class="hud-wave" data-cy="hud-wave">
+            <span class="hud-label">Wave</span>
+            <span class="hud-value" id="hud-wave-value" data-cy="hud-wave-value">1 / 10</span>
+          </div>
+          <div class="hud-health" data-cy="hud-health">
+            <span class="hud-icon">❤️</span>
+            <div class="hud-health-bar">
+              <div class="hud-health-fill" id="hud-health-fill" style="width:100%"></div>
+            </div>
+            <span class="hud-value" id="hud-health-text" data-cy="hud-health-text">5 / 5</span>
+          </div>
+          <div class="hud-coins" data-cy="hud-coins">
+            <span class="hud-icon">🪙</span>
+            <span class="hud-value" id="hud-coins-value" data-cy="hud-coins-value">0</span>
+          </div>
+          <div class="hud-perks" id="hud-perks" data-cy="hud-perks">
+            <!-- Active perk icons injected by HUD.js -->
+          </div>
+          <button id="btn-pause" class="hud-pause-btn" data-cy="btn-pause" aria-label="Pause">⏸</button>
+        </div>
+
+        <!-- Bottom Seed Tray -->
+        <div class="hud-seed-tray" data-cy="hud-seed-tray">
+          <div class="seed-tray-inner" id="seed-tray-inner" data-cy="seed-tray-inner">
+            <!-- Seed packet cards injected by SeedTray.js -->
+          </div>
+          <div class="shovel-btn-wrap">
+            <button id="btn-shovel" class="shovel-btn" data-cy="btn-shovel" title="Shovel (remove plant)">🪣</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pause Overlay -->
+      <div id="screen-pause" class="screen hidden" data-cy="screen-pause">
+        <div class="pause-overlay"></div>
+        <div class="pause-content">
+          <h2>⏸ Paused</h2>
+          <button id="btn-resume" class="menu-btn btn-primary" data-cy="btn-resume">Resume</button>
+          <button id="btn-quit-run" class="menu-btn btn-danger" data-cy="btn-quit-run">Quit Run</button>
+        </div>
+      </div>
+
+      <!-- Between-Wave Shop -->
+      <div id="screen-shop" class="screen hidden" data-cy="screen-shop">
+        <div class="shop-overlay"></div>
+        <div class="shop-content">
+          <h2 class="shop-title">🛒 Perk Shop</h2>
+          <div class="shop-coins-display" data-cy="shop-coins">
+            <span class="hud-icon">🪙</span>
+            <span id="shop-coins-value" data-cy="shop-coins-value">0</span>
+          </div>
+          <div class="shop-cards-container" id="shop-cards-container" data-cy="shop-cards-container">
+            <!-- Perk cards injected by ShopScreen.js -->
+          </div>
+          <button id="btn-shop-skip" class="menu-btn btn-secondary" data-cy="btn-shop-skip">Skip →</button>
+        </div>
+      </div>
+
+      <!-- Meta-Progression / Unlocks Screen -->
+      <div id="screen-meta" class="screen hidden" data-cy="screen-meta">
+        <div class="meta-bg"></div>
+        <div class="meta-content">
+          <h2 class="screen-title">🔓 Permanent Unlocks</h2>
+          <div class="meta-seeds-header">
+            <span class="meta-icon">🌰</span>
+            <span>Seeds available: </span>
+            <span id="meta-seeds-available" data-cy="meta-seeds-available">0</span>
+          </div>
+          <div class="meta-unlock-grid" id="meta-unlock-grid" data-cy="meta-unlock-grid">
+            <!-- Unlock nodes injected by MetaScreen.js -->
+          </div>
+          <button id="btn-meta-back" class="menu-btn btn-secondary">← Back</button>
+        </div>
+      </div>
+
+      <!-- End Screen -->
+      <div id="screen-end" class="screen hidden" data-cy="screen-end">
+        <div class="end-bg"></div>
+        <div class="end-content">
+          <div class="end-banner" id="end-banner" data-cy="end-banner">
+            <!-- Victory/Defeat banner injected by EndScreen.js -->
+          </div>
+          <div class="end-summary" id="end-summary" data-cy="end-summary">
+            <!-- Run summary injected by EndScreen.js -->
+          </div>
+          <div class="end-seeds-earned" id="end-seeds-earned" data-cy="end-seeds-earned">
+            <!-- Seeds earned display -->
+          </div>
+          <div class="end-actions">
+            <button id="btn-play-again" class="menu-btn btn-primary" data-cy="btn-play-again">🌱 Play Again</button>
+            <button id="btn-end-main-menu" class="menu-btn btn-secondary" data-cy="btn-end-main-menu">Main Menu</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /#ui-overlay -->
+  </div><!-- /#game-container -->
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

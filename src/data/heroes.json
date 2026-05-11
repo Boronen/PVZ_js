@@ -1,0 +1,107 @@
+{
+  "heroes": [
+    {
+      "id": "demonQueen",
+      "name": "Demon Queen",
+      "playstyle": ["Swarm", "Aggression", "Cheap Units"],
+      "passiveDescription": "All unit costs reduced by 15%. Spawning 3+ units within 5 seconds triggers a 4-second attack speed buff (+25%) for all active units.",
+      "startingGold": 120,
+      "startingUnits": ["imp"],
+      "tierUnlockCostModifier": 1.0,
+      "uniqueUpgradePool": ["chain_explosion", "mass_spawn_trigger", "swarm_speed_buff", "death_spawn_chance"],
+      "portraitIcon": "👸",
+      "portraitKey": "demonqueen_portrait",
+      "themeColor": "#c0392b",
+      "baseHp": 2500,
+      "passiveEffects": {
+        "unitCostReduction": 0.15,
+        "swarmTriggerCount": 3,
+        "swarmTriggerWindow": 5,
+        "swarmBuffDuration": 4,
+        "swarmAttackSpeedBonus": 0.25
+      },
+      "startingBonus": "Begins with 120 gold and one pre-spawned Imp.",
+      "units": {
+        "tier1": ["imp", "hellbat", "brute_demon"],
+        "tier2": ["succubus", "flame_archer", "infernal_colossus"],
+        "tier3": ["void_reaper", "chaos_cannon", "abyssal_titan"]
+      },
+      "lore": "Once a mortal queen who bargained with the abyss for eternal power, she now commands legions of demons with terrifying efficiency. Her strength lies in numbers — a single imp is nothing, but a swarm is unstoppable."
+    },
+    {
+      "id": "necroKing",
+      "name": "Necro King",
+      "playstyle": ["Death Synergies", "Revive Mechanics", "Scaling"],
+      "passiveDescription": "When a friendly unit dies, gain 5 gold and 1 XP. Every 5th unit death triggers a free revive of the most recently killed unit at 50% HP.",
+      "startingGold": 100,
+      "startingUnits": ["skeleton"],
+      "tierUnlockCostModifier": 0.9,
+      "uniqueUpgradePool": ["death_trigger_upgrades", "raise_fallen_enemy", "death_stack_damage", "revive_chance"],
+      "portraitIcon": "💀",
+      "portraitKey": "necroking_portrait",
+      "themeColor": "#8e44ad",
+      "baseHp": 2500,
+      "passiveEffects": {
+        "deathGoldBonus": 5,
+        "deathXPBonus": 1,
+        "freeReviveEvery": 5,
+        "freeReviveHpPercent": 0.5
+      },
+      "startingBonus": "Begins with a Skeleton unit that revives automatically after death.",
+      "units": {
+        "tier1": ["skeleton", "bone_archer", "bone_golem"],
+        "tier2": ["ghoul", "wraith", "lich"],
+        "tier3": ["death_knight", "soul_cannon", "undead_colossus"]
+      },
+      "lore": "A lich-king who has transcended death itself, the Necro King views every fallen soldier as a resource. His armies grow stronger with each casualty — friend or foe — and his patience is as eternal as his undead legions."
+    },
+    {
+      "id": "humanCommander",
+      "name": "Human Commander",
+      "playstyle": ["Balanced", "Projectile Focus", "Economy"],
+      "passiveDescription": "Passive gold income increased by 20%. Ranged units fire 10% faster. Every tier unlock grants a one-time gold bonus of 75 gold.",
+      "startingGold": 150,
+      "startingUnits": ["footsoldier"],
+      "tierUnlockCostModifier": 1.0,
+      "uniqueUpgradePool": ["projectile_split", "gold_multiplier", "defensive_wall", "chain_projectile"],
+      "portraitIcon": "🎖️",
+      "portraitKey": "humancommander_portrait",
+      "themeColor": "#2980b9",
+      "baseHp": 3000,
+      "passiveEffects": {
+        "passiveIncomeMultiplier": 1.2,
+        "rangedAttackSpeedBonus": 0.1,
+        "tierUnlockGoldBonus": 75
+      },
+      "startingBonus": "Begins with 150 gold and a static defensive turret pre-placed on the lane.",
+      "units": {
+        "tier1": ["footsoldier", "crossbowman", "knight"],
+        "tier2": ["berserker", "musketeer", "paladin"],
+        "tier3": ["champion", "siege_cannon", "iron_fortress"]
+      },
+      "lore": "A decorated veteran of a hundred campaigns, the Human Commander relies on discipline, superior firepower, and economic dominance. Where demons swarm and undead shamble, humans adapt, fortify, and overwhelm."
+    }
+  ],
+  "staticUnits": [
+    {
+      "id": "static_turret",
+      "name": "Turret",
+      "hero": "humanCommander",
+      "tier": 1,
+      "type": "ranged",
+      "hp": 200,
+      "damage": 15,
+      "speed": 0,
+      "attackSpeed": 1.5,
+      "range": 200,
+      "cost": 0,
+      "killXP": 1,
+      "killGold": 20,
+      "icon": "🗼",
+      "spriteKey": "turret_sheet",
+      "animFrames": { "walk": 1, "attack": 4, "death": 3 },
+      "special": "immovable",
+      "description": "A pre-built defensive turret. Cannot move but fires rapidly at approaching enemies."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "warlords-last-siege",
+  "version": "1.0.0",
+  "description": "Browser-based 2D singleplayer lane-battler roguelike strategy game",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve . --listen 8080",
+    "dev": "npx serve . --listen 8080",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "test": "npx cypress run",
+    "test:open": "npx cypress open",
+    "test:headless": "npx cypress run --headless"
+  },
+  "keywords": [
+    "game",
+    "strategy",
+    "roguelike",
+    "lane-battler",
+    "browser-game",
+    "html5",
+    "canvas"
+  ],
+  "author": "Marcell, Tomi, Kevin",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "eslint": "^8.56.0",
+    "serve": "^14.2.1",
+    "wait-on": "^7.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "profiles": [
+    {
+      "difficulty": "easy",
+      "label": "Easy",
+      "description": "A forgiving opponent. Slower income, longer decision intervals, no surge behavior.",
+      "incomeMultiplier": 1.1,
+      "xpMultiplier": 1.0,
+      "decisionIntervalMin": 2.5,
+      "decisionIntervalMax": 4.0,
+      "tier2UnlockTime": 120,
+      "tier3UnlockTime": 270,
+      "surgeEnabled": true,
+      "surgeChance": 0.08,
+      "surgeGoldThreshold": 250,
+      "surgeUnitCount": 2,
+      "counterPickEnabled": false,
+      "counterPickWeight": 0,
+      "startingGold": 120,
+      "passiveGoldPerTick": 7,
+      "passiveGoldTickInterval": 3,
+      "passiveXpPerTick": 3,
+      "passiveXpTickInterval": 5,
+      "unitPreferences": {
+        "melee": 0.5,
+        "ranged": 0.3,
+        "tank": 0.2
+      },
+      "spawnCooldownMultiplier": 1.2
+    },
+    {
+      "difficulty": "normal",
+      "label": "Normal",
+      "description": "A balanced opponent. Standard values with moderate surge behavior and basic counter-picking.",
+      "incomeMultiplier": 1.1,
+      "xpMultiplier": 1.0,
+      "decisionIntervalMin": 2.0,
+      "decisionIntervalMax": 3.5,
+      "tier2UnlockTime": 90,
+      "tier3UnlockTime": 190,
+      "surgeEnabled": true,
+      "surgeChance": 0.15,
+      "surgeGoldThreshold": 200,
+      "surgeUnitCount": 3,
+      "counterPickEnabled": true,
+      "counterPickWeight": 0.4,
+      "startingGold": 130,
+      "passiveGoldPerTick": 7,
+      "passiveGoldTickInterval": 3,
+      "passiveXpPerTick": 3,
+      "passiveXpTickInterval": 5,
+      "unitPreferences": {
+        "melee": 0.4,
+        "ranged": 0.35,
+        "tank": 0.25
+      },
+      "spawnCooldownMultiplier": 1.0
+    },
+    {
+      "difficulty": "hard",
+      "label": "Hard",
+      "description": "A relentless opponent. Faster income, shorter decision intervals, frequent surges, smart counter-picking.",
+      "incomeMultiplier": 1.9,
+      "xpMultiplier": 1.5,
+      "decisionIntervalMin": 0.8,
+      "decisionIntervalMax": 1.8,
+      "tier2UnlockTime": 50,
+      "tier3UnlockTime": 120,
+      "surgeEnabled": true,
+      "surgeChance": 0.35,
+      "surgeGoldThreshold": 140,
+      "surgeUnitCount": 5,
+      "counterPickEnabled": true,
+      "counterPickWeight": 0.8,
+      "startingGold": 200,
+      "passiveGoldPerTick": 12,
+      "passiveGoldTickInterval": 3,
+      "passiveXpPerTick": 5,
+      "passiveXpTickInterval": 5,
+      "unitPreferences": {
+        "melee": 0.35,
+        "ranged": 0.4,
+        "tank": 0.25
+      },
+      "spawnCooldownMultiplier": 0.7
+    }
+  ],
+  "counterPickRules": [
+    {
+      "condition": "playerRangedDominant",
+      "description": "If player has more ranged units than melee + tank combined",
+      "threshold": 1.0,
+      "preferredType": "tank",
+      "preferredTierBonus": 0
+    },
+    {
+      "condition": "playerTankDominant",
+      "description": "If player has more tanks than ranged units",
+      "threshold": 1.0,
+      "preferredType": "melee",
+      "preferredTierBonus": 0
+    },
+    {
+      "condition": "playerMeleeDominant",
+      "description": "If player has more melee units than ranged",
+      "threshold": 1.5,
+      "preferredType": "ranged",
+      "preferredTierBonus": 0
+    }
+  ],
+  "scalingRules": {
+    "description": "Over time, AI income and aggression scale up to simulate escalating pressure.",
+    "incomeScalePerMinute": 0.08,
+    "maxIncomeScaleMultiplier": 2.0,
+    "surgeChanceScalePerMinute": 0.03,
+    "maxSurgeChance": 0.6
+  }
+}
